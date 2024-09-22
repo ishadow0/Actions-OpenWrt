@@ -134,4 +134,8 @@ jobs:
         [ ${UPLOAD_GOFILE} = true && ${{ steps.gofile.outputs.url }} ] && echo "🔗 [GoFile](${{ steps.gofile.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
-
+    - name: Upload firmware
+       uses: actions/upload-artifact@v3
+       with:
+        name: OpenWrt_firmware
+        path: ./bin/targets/
